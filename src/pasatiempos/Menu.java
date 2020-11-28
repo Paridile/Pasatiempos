@@ -46,6 +46,7 @@ public class Menu extends javax.swing.JFrame {
         menuMascotas = new javax.swing.JMenu();
         menuOpcionAdministrarMascotas = new javax.swing.JMenuItem();
         menuOpcionAdministrarTiposMascotas = new javax.swing.JMenuItem();
+        menuOpcionGenerarReporteMascotas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Personas, Mascotas y Pasatiempos");
@@ -80,6 +81,11 @@ public class Menu extends javax.swing.JFrame {
         menuOpcionAdministrarPasatiempos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menuOpcionAdministrarPasatiempos.png"))); // NOI18N
         menuOpcionAdministrarPasatiempos.setMnemonic('d');
         menuOpcionAdministrarPasatiempos.setText("Administrar Pasatiempos");
+        menuOpcionAdministrarPasatiempos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuOpcionAdministrarPasatiemposActionPerformed(evt);
+            }
+        });
         menuPersonas.add(menuOpcionAdministrarPasatiempos);
 
         menuOpcionVerReportePersonas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
@@ -120,7 +126,25 @@ public class Menu extends javax.swing.JFrame {
         menuOpcionAdministrarTiposMascotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menuOpcionAdministrarTiposMascotas.png"))); // NOI18N
         menuOpcionAdministrarTiposMascotas.setMnemonic('i');
         menuOpcionAdministrarTiposMascotas.setText("Administrar Tipos de Mascotas");
+        menuOpcionAdministrarTiposMascotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuOpcionAdministrarTiposMascotasActionPerformed(evt);
+            }
+        });
         menuMascotas.add(menuOpcionAdministrarTiposMascotas);
+
+        menuOpcionGenerarReporteMascotas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        menuOpcionGenerarReporteMascotas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuOpcionGenerarReporteMascotas.setForeground(java.awt.Color.darkGray);
+        menuOpcionGenerarReporteMascotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menuOpcionAdministrarTiposMascotas.png"))); // NOI18N
+        menuOpcionGenerarReporteMascotas.setMnemonic('i');
+        menuOpcionGenerarReporteMascotas.setText("Generar reporte mascotas");
+        menuOpcionGenerarReporteMascotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuOpcionGenerarReporteMascotasActionPerformed(evt);
+            }
+        });
+        menuMascotas.add(menuOpcionGenerarReporteMascotas);
 
         barraMenus.add(menuMascotas);
 
@@ -171,11 +195,31 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuOpcionAdministrarMascotasActionPerformed
 
     private void menuOpcionVerReportePersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionVerReportePersonasActionPerformed
+        creaJasper("reportePersonas");
+    }//GEN-LAST:event_menuOpcionVerReportePersonasActionPerformed
+
+    private void menuOpcionAdministrarPasatiemposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionAdministrarPasatiemposActionPerformed
+
+    }//GEN-LAST:event_menuOpcionAdministrarPasatiemposActionPerformed
+
+    private void menuOpcionAdministrarTiposMascotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionAdministrarTiposMascotasActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TipoMascota().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_menuOpcionAdministrarTiposMascotasActionPerformed
+
+    private void menuOpcionGenerarReporteMascotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionGenerarReporteMascotasActionPerformed
+        creaJasper("reporteMascotas");
+    }//GEN-LAST:event_menuOpcionGenerarReporteMascotasActionPerformed
+
+    public void creaJasper(String nombre){
         JasperPrint jasperPrint = null;
         try {
             ManejadorBD mbd = new ManejadorBD();
             mbd.conectarMySQL8("localhost", "pasatiempos", "root", "root", 3307);
-            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("reportePersonas.jasper"));
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource(nombre + ".jasper"));
             jasperPrint = JasperFillManager.fillReport(jr, new HashMap(), 
                     mbd.getConexion());
             JasperViewer jasperViewer = new JasperViewer(jasperPrint, false);
@@ -184,8 +228,7 @@ public class Menu extends javax.swing.JFrame {
         } catch (JRException ex) {
             ex.printStackTrace();
         }
-    }//GEN-LAST:event_menuOpcionVerReportePersonasActionPerformed
-
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barraMenus;
@@ -196,6 +239,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuOpcionAdministrarPasatiempos;
     private javax.swing.JMenuItem menuOpcionAdministrarPersonas;
     private javax.swing.JMenuItem menuOpcionAdministrarTiposMascotas;
+    private javax.swing.JMenuItem menuOpcionGenerarReporteMascotas;
     private javax.swing.JMenuItem menuOpcionVerReportePersonas;
     private javax.swing.JMenu menuPersonas;
     // End of variables declaration//GEN-END:variables
