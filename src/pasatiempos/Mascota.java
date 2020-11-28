@@ -5,18 +5,80 @@
  */
 package pasatiempos;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author pablo
  */
 public class Mascota extends javax.swing.JFrame {
-
+private ManejadorBD manejadorBD;
     /**
      * Creates new form Mascota
      */
     public Mascota() {
         setResizable(false);
-        initComponents();
+        initComponents();        
+        manejadorBD = new ManejadorBD();
+    	manejadorBD.conectarMySQL8("localhost", "pasatiempos", "root", "root", 3307);
+        muestraVentana("mascota", "");
+    }
+    
+    private void muestraRegistroActual() {
+    	if(manejadorBD.indiceActual() != 0) {
+            manejadorBD.refrescaRegistroActual();
+            textIdMascota.setText(manejadorBD.getCampoRegistroActual("idMascota").toString());
+            textNombre.setText(manejadorBD.getCampoRegistroActual("nombre").toString());
+            textIdTipoMascota.setText(manejadorBD.getCampoRegistroActual("idTipoMascota").toString());
+            textDescripcionMascota.setText(manejadorBD.getCampoRegistroActual("descripcion").toString());
+            botonNueva.setEnabled(true);
+            botonEditar.setEnabled(true);
+            botonCancelar.setEnabled(false);
+            botonBorrar.setEnabled(true);
+            botonGuardar.setEnabled(false);
+            botonActualizar.setEnabled(false);
+            cambiaActivacionBotonesNavegacionRegistros(true);
+        }
+    	else {
+            borraEntradasCamposTexto();
+            botonNueva.setEnabled(true);
+            botonEditar.setEnabled(false);
+            botonBorrar.setEnabled(false);
+            botonCancelar.setEnabled(false);
+            botonGuardar.setEnabled(false);            
+            cambiaActivacionBotonesNavegacionRegistros(false);
+    	}
+    }
+    
+    private void borraEntradasCamposTexto() {
+        textDescripcionMascota.setText("");        
+        textIdMascota.setText("");        
+        textIdTipoMascota.setText("");        
+        textNombre.setText("");                
+    }
+    
+    private void cambiaActivacionBotonesNavegacionRegistros(boolean estado) {
+        botonPrimera.setEnabled(estado);
+        botonSiguiente.setEnabled(estado);
+        botonAnterior.setEnabled(estado);
+        botonUltima.setEnabled(estado);
+    } 
+    
+    private void muestraVentana(String tabla, String condicion) {
+        if(condicion != null && !condicion.equals("")) {
+            if(manejadorBD.consultaRegistros(tabla, condicion) != 0) {
+                muestraRegistroActual();
+                botonEditar.setEnabled(true);
+                botonBorrar.setEnabled(true);
+                cambiaActivacionBotonesNavegacionRegistros(true);
+            }
+    	}
+        else if(manejadorBD.consultaRegistros(tabla) != 0) {
+            muestraRegistroActual();
+            botonEditar.setEnabled(true);
+            botonBorrar.setEnabled(true);
+            cambiaActivacionBotonesNavegacionRegistros(true);
+    	}
     }
 
     /**
@@ -38,8 +100,6 @@ public class Mascota extends javax.swing.JFrame {
         textDescripcionMascota = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         textIdTipoMascota = new javax.swing.JTextField();
-        textNombreTipoMascota = new javax.swing.JTextField();
-        botonNueva = new javax.swing.JButton();
         botonGuardar = new javax.swing.JButton();
         botonEditar = new javax.swing.JButton();
         botonCancelar = new javax.swing.JButton();
@@ -49,6 +109,7 @@ public class Mascota extends javax.swing.JFrame {
         botonAnterior = new javax.swing.JButton();
         botonSiguiente = new javax.swing.JButton();
         botonUltima = new javax.swing.JButton();
+        botonNueva = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Administrar mascotas");
@@ -60,6 +121,7 @@ public class Mascota extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel2.setText("IdMascota");
 
+        textIdMascota.setEnabled(false);
         textIdMascota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textIdMascotaActionPerformed(evt);
@@ -69,6 +131,7 @@ public class Mascota extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel3.setText("Nombre");
 
+        textNombre.setEnabled(false);
         textNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textNombreActionPerformed(evt);
@@ -80,31 +143,16 @@ public class Mascota extends javax.swing.JFrame {
 
         textDescripcionMascota.setColumns(20);
         textDescripcionMascota.setRows(5);
+        textDescripcionMascota.setEnabled(false);
         jScrollPane1.setViewportView(textDescripcionMascota);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel5.setText("IdTipoMascota");
 
+        textIdTipoMascota.setEnabled(false);
         textIdTipoMascota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textIdTipoMascotaActionPerformed(evt);
-            }
-        });
-
-        textNombreTipoMascota.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textNombreTipoMascotaActionPerformed(evt);
-            }
-        });
-
-        botonNueva.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        botonNueva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoNuevoRegistro.png"))); // NOI18N
-        botonNueva.setMnemonic('N');
-        botonNueva.setText("Nueva");
-        botonNueva.setToolTipText("Activar edición de un registro nuevo de una persona");
-        botonNueva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonNuevaActionPerformed(evt);
             }
         });
 
@@ -112,7 +160,7 @@ public class Mascota extends javax.swing.JFrame {
         botonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoGuardarRegistro.png"))); // NOI18N
         botonGuardar.setMnemonic('G');
         botonGuardar.setText("Guardar");
-        botonGuardar.setToolTipText("Guarda un registro nuevo de una persona");
+        botonGuardar.setToolTipText("Guarda un registro nuevo de una mascota");
         botonGuardar.setEnabled(false);
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +172,7 @@ public class Mascota extends javax.swing.JFrame {
         botonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoEditarRegistro.png"))); // NOI18N
         botonEditar.setMnemonic('E');
         botonEditar.setText("Editar");
-        botonEditar.setToolTipText("Activar edición del registro actual de persona");
+        botonEditar.setToolTipText("Activar edición del registro actual de mascota");
         botonEditar.setEnabled(false);
         botonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +184,7 @@ public class Mascota extends javax.swing.JFrame {
         botonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoCancelarEdicion.png"))); // NOI18N
         botonCancelar.setMnemonic('C');
         botonCancelar.setText("Cancelar");
-        botonCancelar.setToolTipText("Cancelar edición del registro actual de una persona");
+        botonCancelar.setToolTipText("Cancelar edición del registro actual de una mascota");
         botonCancelar.setEnabled(false);
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +196,7 @@ public class Mascota extends javax.swing.JFrame {
         botonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoBorrarRegistro.png"))); // NOI18N
         botonBorrar.setMnemonic('B');
         botonBorrar.setText("Borrar");
-        botonBorrar.setToolTipText("Borrar registro actual de una persona");
+        botonBorrar.setToolTipText("Borrar registro actual de una mascota");
         botonBorrar.setEnabled(false);
         botonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +208,7 @@ public class Mascota extends javax.swing.JFrame {
         botonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoActualizarRegistro.png"))); // NOI18N
         botonActualizar.setMnemonic('A');
         botonActualizar.setText("Actualizar");
-        botonActualizar.setToolTipText("Actualizar registro actual de una persona");
+        botonActualizar.setToolTipText("Actualizar registro actual de una mascota");
         botonActualizar.setEnabled(false);
         botonActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,7 +220,7 @@ public class Mascota extends javax.swing.JFrame {
         botonPrimera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoPrimerRegistro.png"))); // NOI18N
         botonPrimera.setMnemonic('P');
         botonPrimera.setText("Primera");
-        botonPrimera.setToolTipText("Ver primer registro de una persona");
+        botonPrimera.setToolTipText("Ver primer registro de una mascota");
         botonPrimera.setEnabled(false);
         botonPrimera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +232,7 @@ public class Mascota extends javax.swing.JFrame {
         botonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoAnteriorRegistro.png"))); // NOI18N
         botonAnterior.setMnemonic('n');
         botonAnterior.setText("Anterior");
-        botonAnterior.setToolTipText("Ver anterior registro de una persona");
+        botonAnterior.setToolTipText("Ver anterior registro de una mascota");
         botonAnterior.setEnabled(false);
         botonAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +244,7 @@ public class Mascota extends javax.swing.JFrame {
         botonSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoSiguienteRegistro.png"))); // NOI18N
         botonSiguiente.setMnemonic('S');
         botonSiguiente.setText("Siguiente");
-        botonSiguiente.setToolTipText("Ver siguiente registro de una persona");
+        botonSiguiente.setToolTipText("Ver siguiente registro de una mascota");
         botonSiguiente.setEnabled(false);
         botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,7 +256,7 @@ public class Mascota extends javax.swing.JFrame {
         botonUltima.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoUltimoRegistro.png"))); // NOI18N
         botonUltima.setMnemonic('\u00da');
         botonUltima.setText("Última");
-        botonUltima.setToolTipText("Ver último registro de una persona");
+        botonUltima.setToolTipText("Ver último registro de una mascota");
         botonUltima.setEnabled(false);
         botonUltima.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,19 +264,33 @@ public class Mascota extends javax.swing.JFrame {
             }
         });
 
+        botonNueva.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        botonNueva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoNuevoRegistro.png"))); // NOI18N
+        botonNueva.setMnemonic('N');
+        botonNueva.setText("Nueva");
+        botonNueva.setToolTipText("Activar edición de un registro nuevo de mascota");
+        botonNueva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonNuevaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(194, 194, 194))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(220, 220, 220)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textIdTipoMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -236,78 +298,67 @@ public class Mascota extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(textIdMascota, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                    .addComponent(textNombre)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(textIdTipoMascota, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)))
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                                    .addComponent(textNombre))
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(textNombreTipoMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addComponent(botonActualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botonPrimera)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botonAnterior)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botonSiguiente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botonUltima)))
-                .addContainerGap(112, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(botonNueva)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonGuardar)
-                .addGap(18, 18, 18)
-                .addComponent(botonEditar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonCancelar)
-                .addGap(18, 18, 18)
-                .addComponent(botonBorrar)
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(botonNueva)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botonGuardar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonEditar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonCancelar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonBorrar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(botonActualizar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botonPrimera)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botonAnterior)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botonSiguiente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botonUltima)))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textIdMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textIdMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(43, 43, 43)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textIdTipoMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textNombreTipoMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(textIdTipoMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonNueva)
                     .addComponent(botonGuardar)
                     .addComponent(botonEditar)
                     .addComponent(botonCancelar)
-                    .addComponent(botonBorrar))
+                    .addComponent(botonBorrar)
+                    .addComponent(botonNueva))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonActualizar)
@@ -315,7 +366,7 @@ public class Mascota extends javax.swing.JFrame {
                     .addComponent(botonAnterior)
                     .addComponent(botonSiguiente)
                     .addComponent(botonUltima))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGap(15, 15, Short.MAX_VALUE))
         );
 
         pack();
@@ -333,141 +384,184 @@ public class Mascota extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textIdTipoMascotaActionPerformed
 
-    private void textNombreTipoMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNombreTipoMascotaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textNombreTipoMascotaActionPerformed
-
-    private void botonNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaActionPerformed
-//        nuevoRegistro();
-//        cambiaActivacionBotonesNavegacionRegistros(false);
-//        botonNueva.setEnabled(false);
-//        botonEditar.setEnabled(false);
-//        botonGuardar.setEnabled(true);
-//        botonBorrar.setEnabled(false);
-//        botonCancelar.setEnabled(true);
-    }//GEN-LAST:event_botonNuevaActionPerformed
-
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
-//        if(validaCampos()) {
-//            manejadorBD.iniciarBloque("persona");
-//            insertaRegistro();
-//            manejadorBD.cerrarBloque();
-//            JOptionPane.showMessageDialog(this, "Los datos de la Persona han sido guardados.");
-//            manejadorBD.consultaRegistros("persona");
-//            cambiaActivacionBotonesNavegacionRegistros(true);
-//            botonNueva.setEnabled(true);
-//            botonGuardar.setEnabled(false);
-//            botonEditar.setEnabled(true);
-//            botonCancelar.setEnabled(false);
-//            botonBorrar.setEnabled(true);
-//        }
-//        else {
-//            JOptionPane.showMessageDialog(this,
-//                "No se pueden guardar los datos de la Persona.",
-//                "Error al guardar los datos de la Persona",
-//                JOptionPane.ERROR_MESSAGE);
-//        }
+        if(validaCampos()) {
+            manejadorBD.iniciarBloque("mascota");
+            insertaRegistro();
+            manejadorBD.cerrarBloque();
+            JOptionPane.showMessageDialog(this, "Los datos de la mascota han sido guardados.");
+            manejadorBD.consultaRegistros("mascota");
+            cambiaActivacionBotonesNavegacionRegistros(true);
+            botonNueva.setEnabled(true);
+            botonGuardar.setEnabled(false);
+            botonEditar.setEnabled(true);
+            botonCancelar.setEnabled(false);
+            botonBorrar.setEnabled(true);
+        }
+        else {
+            JOptionPane.showMessageDialog(this,
+                "No se pueden guardar los datos de la mascota.",
+                "Error al guardar los datos de la mascota",
+                JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_botonGuardarActionPerformed
 
     private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
-//        cambiaActivacionCamposTexto(true);
-//        botonNueva.setEnabled(false);
-//        botonBorrar.setEnabled(false);
-//        botonEditar.setEnabled(false);
-//        botonCancelar.setEnabled(true);
-//        botonActualizar.setEnabled(true);
-//        cambiaActivacionBotonesNavegacionRegistros(false);
+        cambiaActivacionCamposTexto(true);
+        botonNueva.setEnabled(false);
+        botonBorrar.setEnabled(false);
+        botonEditar.setEnabled(false);
+        botonCancelar.setEnabled(true);
+        botonActualizar.setEnabled(true);
+        cambiaActivacionBotonesNavegacionRegistros(false);
     }//GEN-LAST:event_botonEditarActionPerformed
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
-//        cambiaActivacionCamposTexto(false);
-//        muestraRegistroActual();
+        cambiaActivacionCamposTexto(false);
+        muestraRegistroActual();
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
-//        int respuesta = JOptionPane.showConfirmDialog(this,
-//            "¿Desea eliminar el registro de la Persona?",
-//            "Confirme su respuesta",
-//            JOptionPane.YES_NO_OPTION);
-//        if(respuesta == 0) {
-//            manejadorBD.borraRegistroActual();
-//            siguienteRegistro();
-//        }
-//        else {
-//            JOptionPane.showMessageDialog(this, "Se canceló la eliminación del registro de la Persona.");
-//        }
+        int respuesta = JOptionPane.showConfirmDialog(this,
+            "¿Desea eliminar el registro de la mascota?",
+            "Confirme su respuesta",
+            JOptionPane.YES_NO_OPTION);
+        if(respuesta == 0) {
+            manejadorBD.borraRegistroActual();
+            siguienteRegistro();
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Se canceló la eliminación del registro de la mascota.");
+        }
     }//GEN-LAST:event_botonBorrarActionPerformed
 
     private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
-//        int respuesta = JOptionPane.showConfirmDialog(this,
-//            "¿Desea actualizar el registro de la Persona?",
-//            "Confirme su respuesta",
-//            JOptionPane.YES_NO_OPTION);
-//        if(respuesta == 0) {
-//            insertaRegistro();
-//            manejadorBD.actualizaRegistroActual();
-//            botonCancelar.setEnabled(false);
-//            botonActualizar.setEnabled(false);
-//            botonEditar.setEnabled(true);
-//            botonBorrar.setEnabled(true);
-//            botonNueva.setEnabled(true);
-//            cambiaActivacionBotonesNavegacionRegistros(true);
-//        }
-//        else {
-//            JOptionPane.showMessageDialog(this, "Se canceló la actualización del registro de la Persona.");
-//        }
+        int respuesta = JOptionPane.showConfirmDialog(this,
+            "¿Desea actualizar el registro de la mascota?",
+            "Confirme su respuesta",
+            JOptionPane.YES_NO_OPTION);
+        if(respuesta == 0) {
+            insertaRegistro();
+            manejadorBD.actualizaRegistroActual();
+            botonCancelar.setEnabled(false);
+            botonActualizar.setEnabled(false);
+            botonEditar.setEnabled(true);
+            botonBorrar.setEnabled(true);
+            botonNueva.setEnabled(true);
+            cambiaActivacionBotonesNavegacionRegistros(true);
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Se canceló la actualización del registro de la mascota.");
+        }
     }//GEN-LAST:event_botonActualizarActionPerformed
 
     private void botonPrimeraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPrimeraActionPerformed
-//        primerRegistro();
+        primerRegistro();
     }//GEN-LAST:event_botonPrimeraActionPerformed
 
     private void botonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAnteriorActionPerformed
-//        anteriorRegistro();
+        anteriorRegistro();
     }//GEN-LAST:event_botonAnteriorActionPerformed
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
-//        siguienteRegistro();
+        siguienteRegistro();
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
     private void botonUltimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonUltimaActionPerformed
-//        ultimoRegistro();
+        ultimoRegistro();
     }//GEN-LAST:event_botonUltimaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Mascota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Mascota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Mascota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Mascota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Mascota().setVisible(true);
-            }
-        });
+    private void botonNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaActionPerformed
+        nuevoRegistro();
+        cambiaActivacionBotonesNavegacionRegistros(false);
+        botonNueva.setEnabled(false);
+        botonEditar.setEnabled(false);
+        botonGuardar.setEnabled(true);
+        botonBorrar.setEnabled(false);
+        botonCancelar.setEnabled(true);
+    }//GEN-LAST:event_botonNuevaActionPerformed
+    
+    private void nuevoRegistro() {
+        borraEntradasCamposTexto();
+        cambiaActivacionCamposTexto(true);
     }
+    
+    private void primerRegistro() {
+    	manejadorBD.veAlPrimerRegistro();
+    	muestraRegistroActual();
+    }
+
+    private void ultimoRegistro() {
+    	manejadorBD.veAlUltimoRegistro();
+    	muestraRegistroActual();
+    }
+
+    private void siguienteRegistro() {
+    	manejadorBD.veAlSiguienteRegistro();
+    	muestraRegistroActual();
+    }
+
+    private void anteriorRegistro() {
+    	manejadorBD.veAlAnteriorRegistro();
+    	muestraRegistroActual();
+    }
+
+    private void insertaRegistro(){
+        cambiaActivacionCamposTexto(false);
+        manejadorBD.insertarCampo("idMascota", textIdMascota.getText());
+        manejadorBD.insertarCampo("nombre", textNombre.getText());
+        manejadorBD.insertarCampo("idTipoMascota", textIdTipoMascota.getText());
+        manejadorBD.insertarCampo("descripcion", textDescripcionMascota.getText());
+    }
+    
+    private void cambiaActivacionCamposTexto(boolean estado) {
+        textIdMascota.setEnabled(estado);
+        textIdTipoMascota.setEnabled(estado);
+        textNombre.setEnabled(estado);
+        textDescripcionMascota.setEnabled(estado);
+    }
+    
+      private boolean validaCampos() {
+        boolean correcto = true;
+        try {
+            Integer.parseInt(textIdMascota.getText());                    
+        } catch(NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(this,
+                    "Se debe introducir un valor entero para el Id de la mascota.",
+                    "Error en el campo IdMascota",
+                    JOptionPane.ERROR_MESSAGE);
+            correcto = false;
+        }
+        if(correcto) {
+            if(textNombre.getText().equals("")) {
+                JOptionPane.showMessageDialog(this,
+                    "Se deben introducir los nombres de la mascota.",
+                    "Error en el campo mascota",
+                    JOptionPane.ERROR_MESSAGE);
+                correcto = false;
+            }
+        }
+        if(correcto) {
+            if(textIdTipoMascota.getText().equals("")) {
+                JOptionPane.showMessageDialog(this,
+                    "Se debe introducir el id del tipo de mascota",
+                    "Error en el campo id tipo mascota",
+                    JOptionPane.ERROR_MESSAGE);
+                correcto = false;
+            }
+        }
+        if(correcto) {
+            if(textDescripcionMascota.getText().equals("")) {
+                JOptionPane.showMessageDialog(this,
+                    "Se debe introducir la descripcion de la mascota",
+                    "Error en el campo Descripcion",
+                    JOptionPane.ERROR_MESSAGE);
+                correcto = false;
+            }
+        }
+        return correcto;
+    }
+      
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonActualizar;
@@ -490,6 +584,5 @@ public class Mascota extends javax.swing.JFrame {
     private javax.swing.JTextField textIdMascota;
     private javax.swing.JTextField textIdTipoMascota;
     private javax.swing.JTextField textNombre;
-    private javax.swing.JTextField textNombreTipoMascota;
     // End of variables declaration//GEN-END:variables
 }
