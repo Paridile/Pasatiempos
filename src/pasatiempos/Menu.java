@@ -80,6 +80,11 @@ public class Menu extends javax.swing.JFrame {
         menuOpcionAdministrarPasatiempos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menuOpcionAdministrarPasatiempos.png"))); // NOI18N
         menuOpcionAdministrarPasatiempos.setMnemonic('d');
         menuOpcionAdministrarPasatiempos.setText("Administrar Pasatiempos");
+        menuOpcionAdministrarPasatiempos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuOpcionAdministrarPasatiemposActionPerformed(evt);
+            }
+        });
         menuPersonas.add(menuOpcionAdministrarPasatiempos);
 
         menuOpcionVerReportePersonas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
@@ -120,6 +125,11 @@ public class Menu extends javax.swing.JFrame {
         menuOpcionAdministrarTiposMascotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menuOpcionAdministrarTiposMascotas.png"))); // NOI18N
         menuOpcionAdministrarTiposMascotas.setMnemonic('i');
         menuOpcionAdministrarTiposMascotas.setText("Administrar Tipos de Mascotas");
+        menuOpcionAdministrarTiposMascotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuOpcionAdministrarTiposMascotasActionPerformed(evt);
+            }
+        });
         menuMascotas.add(menuOpcionAdministrarTiposMascotas);
 
         barraMenus.add(menuMascotas);
@@ -185,6 +195,18 @@ public class Menu extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_menuOpcionVerReportePersonasActionPerformed
+
+    private void menuOpcionAdministrarPasatiemposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionAdministrarPasatiemposActionPerformed
+
+    }//GEN-LAST:event_menuOpcionAdministrarPasatiemposActionPerformed
+
+    private void menuOpcionAdministrarTiposMascotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionAdministrarTiposMascotasActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TipoMascota().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_menuOpcionAdministrarTiposMascotasActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
