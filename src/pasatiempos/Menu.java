@@ -46,6 +46,7 @@ public class Menu extends javax.swing.JFrame {
         menuMascotas = new javax.swing.JMenu();
         menuOpcionAdministrarMascotas = new javax.swing.JMenuItem();
         menuOpcionAdministrarTiposMascotas = new javax.swing.JMenuItem();
+        menuOpcionGenerarReporteMascotas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Personas, Mascotas y Pasatiempos");
@@ -132,6 +133,19 @@ public class Menu extends javax.swing.JFrame {
         });
         menuMascotas.add(menuOpcionAdministrarTiposMascotas);
 
+        menuOpcionGenerarReporteMascotas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        menuOpcionGenerarReporteMascotas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuOpcionGenerarReporteMascotas.setForeground(java.awt.Color.darkGray);
+        menuOpcionGenerarReporteMascotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menuOpcionAdministrarTiposMascotas.png"))); // NOI18N
+        menuOpcionGenerarReporteMascotas.setMnemonic('i');
+        menuOpcionGenerarReporteMascotas.setText("Generar reporte mascotas");
+        menuOpcionGenerarReporteMascotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuOpcionGenerarReporteMascotasActionPerformed(evt);
+            }
+        });
+        menuMascotas.add(menuOpcionGenerarReporteMascotas);
+
         barraMenus.add(menuMascotas);
 
         setJMenuBar(barraMenus);
@@ -181,19 +195,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuOpcionAdministrarMascotasActionPerformed
 
     private void menuOpcionVerReportePersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionVerReportePersonasActionPerformed
-        JasperPrint jasperPrint = null;
-        try {
-            ManejadorBD mbd = new ManejadorBD();
-            mbd.conectarMySQL8("localhost", "pasatiempos", "root", "root", 3307);
-            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("reportePersonas.jasper"));
-            jasperPrint = JasperFillManager.fillReport(jr, new HashMap(), 
-                    mbd.getConexion());
-            JasperViewer jasperViewer = new JasperViewer(jasperPrint, false);
-            jasperViewer.setVisible(true);
-            mbd.cerrarConexion();
-        } catch (JRException ex) {
-            ex.printStackTrace();
-        }
+        creaJasper("reportePersonas");
     }//GEN-LAST:event_menuOpcionVerReportePersonasActionPerformed
 
     private void menuOpcionAdministrarPasatiemposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionAdministrarPasatiemposActionPerformed
@@ -208,6 +210,25 @@ public class Menu extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_menuOpcionAdministrarTiposMascotasActionPerformed
 
+    private void menuOpcionGenerarReporteMascotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionGenerarReporteMascotasActionPerformed
+        creaJasper("reporteMascotas");
+    }//GEN-LAST:event_menuOpcionGenerarReporteMascotasActionPerformed
+
+    public void creaJasper(String nombre){
+        JasperPrint jasperPrint = null;
+        try {
+            ManejadorBD mbd = new ManejadorBD();
+            mbd.conectarMySQL8("localhost", "pasatiempos", "root", "root", 3307);
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource(nombre + ".jasper"));
+            jasperPrint = JasperFillManager.fillReport(jr, new HashMap(), 
+                    mbd.getConexion());
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint, false);
+            jasperViewer.setVisible(true);
+            mbd.cerrarConexion();
+        } catch (JRException ex) {
+            ex.printStackTrace();
+        }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barraMenus;
@@ -218,6 +239,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuOpcionAdministrarPasatiempos;
     private javax.swing.JMenuItem menuOpcionAdministrarPersonas;
     private javax.swing.JMenuItem menuOpcionAdministrarTiposMascotas;
+    private javax.swing.JMenuItem menuOpcionGenerarReporteMascotas;
     private javax.swing.JMenuItem menuOpcionVerReportePersonas;
     private javax.swing.JMenu menuPersonas;
     // End of variables declaration//GEN-END:variables
