@@ -23,6 +23,7 @@ public class Menu extends javax.swing.JFrame {
      * Creates new form Menu
      */
     public Menu() {
+        setResizable(false);
         initComponents();
     }
 
@@ -162,7 +163,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuOpcionAdministrarPersonasActionPerformed
 
     private void menuOpcionAdministrarMascotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionAdministrarMascotasActionPerformed
-        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Mascota().setVisible(true);
+            }
+        });
     }//GEN-LAST:event_menuOpcionAdministrarMascotasActionPerformed
 
     private void menuOpcionVerReportePersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionVerReportePersonasActionPerformed

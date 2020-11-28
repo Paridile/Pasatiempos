@@ -18,6 +18,7 @@ public class Personas extends javax.swing.JFrame {
      * Creates new form Persona2
      */
     public Personas() {
+        setResizable(false);
         initComponents();
         manejadorBD = new ManejadorBD();
     	manejadorBD.conectarMySQL8("localhost", "pasatiempos", "root", "root", 3307);
