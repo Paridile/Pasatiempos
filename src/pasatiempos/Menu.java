@@ -253,7 +253,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuOpcionVerReportePersonasActionPerformed
 
     private void menuOpcionAdministrarPasatiemposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionAdministrarPasatiemposActionPerformed
-
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PasaTiempo().setVisible(true);
+            }
+        });
     }//GEN-LAST:event_menuOpcionAdministrarPasatiemposActionPerformed
 
     private void menuOpcionAdministrarTiposMascotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionAdministrarTiposMascotasActionPerformed
