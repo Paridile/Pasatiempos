@@ -44,6 +44,7 @@ public class Menu extends javax.swing.JFrame {
         menuOpcionAdministrarPasatiempos = new javax.swing.JMenuItem();
         menuOpcionAdministrarPersonaMascota = new javax.swing.JMenuItem();
         menuOpcionVerReportePersonas = new javax.swing.JMenuItem();
+        menuOpcionVerReportePasatiempos = new javax.swing.JMenuItem();
         menuMascotas = new javax.swing.JMenu();
         menuOpcionAdministrarMascotas = new javax.swing.JMenuItem();
         menuOpcionAdministrarTiposMascotas = new javax.swing.JMenuItem();
@@ -113,6 +114,18 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         menuPersonas.add(menuOpcionVerReportePersonas);
+
+        menuOpcionVerReportePasatiempos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        menuOpcionVerReportePasatiempos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuOpcionVerReportePasatiempos.setForeground(java.awt.Color.darkGray);
+        menuOpcionVerReportePasatiempos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reporte.png"))); // NOI18N
+        menuOpcionVerReportePasatiempos.setText("Ver reporte de Pasatiempos");
+        menuOpcionVerReportePasatiempos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuOpcionVerReportePasatiemposActionPerformed(evt);
+            }
+        });
+        menuPersonas.add(menuOpcionVerReportePasatiempos);
 
         barraMenus.add(menuPersonas);
 
@@ -254,6 +267,10 @@ public class Menu extends javax.swing.JFrame {
         creaJasper("reporteTipoMascota");
     }//GEN-LAST:event_menuOpcionGenerarReporteTipoMascotaActionPerformed
 
+    private void menuOpcionVerReportePasatiemposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionVerReportePasatiemposActionPerformed
+        creaJasper("reportePasatiempos");
+    }//GEN-LAST:event_menuOpcionVerReportePasatiemposActionPerformed
+
     public void creaJasper(String nombre){
         JasperPrint jasperPrint = null;
         try {
@@ -282,6 +299,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuOpcionAdministrarTiposMascotas;
     private javax.swing.JMenuItem menuOpcionGenerarReporteMascotas;
     private javax.swing.JMenuItem menuOpcionGenerarReporteTipoMascota;
+    private javax.swing.JMenuItem menuOpcionVerReportePasatiempos;
     private javax.swing.JMenuItem menuOpcionVerReportePersonas;
     private javax.swing.JMenu menuPersonas;
     // End of variables declaration//GEN-END:variables
