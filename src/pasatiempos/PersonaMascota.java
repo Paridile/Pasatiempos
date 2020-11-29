@@ -61,25 +61,22 @@ public class PersonaMascota extends javax.swing.JFrame {
             correcto = false;
         }
         if(correcto) {
-            try {
-                Integer.parseInt(textIdMascota.getText());                    
-            } catch(NumberFormatException nfe) {
-                JOptionPane.showMessageDialog(this,
-                    "Se debe introducir un valor entero para el Id del tipo de persona.",
-                    "Error en el campo Id persona",
-                    JOptionPane.ERROR_MESSAGE);
-                correcto = false;
-            }
-            
-            if(correcto) {
+                if(textIdMascota.getText().equals("")) {
+                    JOptionPane.showMessageDialog(this,
+                        "Se debe introducir un valor entero para el Id del tipo de Mascota.",
+                        "Error en el campo Id Mascota",
+                        JOptionPane.ERROR_MESSAGE);
+                    correcto = false;
+                }   
+        }
+        if(correcto) {
                 if(textfechaAdquisicion.getText().equals("")) {
                     JOptionPane.showMessageDialog(this,
-                        "Se debe introducir la fecha de nacimiento de la Persona.",
-                        "Error en el campo Fecha de nacimiento",
+                        "Se debe introducir la fecha de adquisicion de la Mascota.",
+                        "Error en el campo Fecha de Adquisicion",
                         JOptionPane.ERROR_MESSAGE);
                     correcto = false;
                 }
-            }
         }
         return correcto;
     }
@@ -208,7 +205,7 @@ public class PersonaMascota extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(105, 77, 131));
+        jLabel1.setForeground(new java.awt.Color(0, 153, 255));
         jLabel1.setText("Persona Mascota");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -402,15 +399,14 @@ public class PersonaMascota extends javax.swing.JFrame {
                                 .addGap(40, 40, 40)
                                 .addComponent(textIdPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(39, 39, 39)
-                                .addComponent(textfechaAdquisicion, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                        .addComponent(jLabel4)
+                        .addGap(39, 39, 39)
+                        .addComponent(textfechaAdquisicion, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(250, 250, 250))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
