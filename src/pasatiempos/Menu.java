@@ -43,9 +43,11 @@ public class Menu extends javax.swing.JFrame {
         menuOpcionAdministrarPersonas = new javax.swing.JMenuItem();
         menuOpcionAdministrarPasatiempos = new javax.swing.JMenuItem();
         menuOpcionAdministrarPersonaMascota = new javax.swing.JMenuItem();
+        menuOpcionAdministrarPersonaPasatiempo = new javax.swing.JMenuItem();
         menuOpcionVerReportePersonas = new javax.swing.JMenuItem();
         menuOpcionVerReportePasatiempos = new javax.swing.JMenuItem();
         menuOpcionVerReportePersonaMascota = new javax.swing.JMenuItem();
+        menuOpcionVerReportePersonaPasatiempo = new javax.swing.JMenuItem();
         menuMascotas = new javax.swing.JMenu();
         menuOpcionAdministrarMascotas = new javax.swing.JMenuItem();
         menuOpcionAdministrarTiposMascotas = new javax.swing.JMenuItem();
@@ -104,6 +106,18 @@ public class Menu extends javax.swing.JFrame {
         });
         menuPersonas.add(menuOpcionAdministrarPersonaMascota);
 
+        menuOpcionAdministrarPersonaPasatiempo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        menuOpcionAdministrarPersonaPasatiempo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuOpcionAdministrarPersonaPasatiempo.setForeground(java.awt.Color.darkGray);
+        menuOpcionAdministrarPersonaPasatiempo.setMnemonic('d');
+        menuOpcionAdministrarPersonaPasatiempo.setText("Administrar PersonaPasatiempo");
+        menuOpcionAdministrarPersonaPasatiempo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuOpcionAdministrarPersonaPasatiempoActionPerformed(evt);
+            }
+        });
+        menuPersonas.add(menuOpcionAdministrarPersonaPasatiempo);
+
         menuOpcionVerReportePersonas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
         menuOpcionVerReportePersonas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuOpcionVerReportePersonas.setForeground(java.awt.Color.darkGray);
@@ -139,6 +153,18 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         menuPersonas.add(menuOpcionVerReportePersonaMascota);
+
+        menuOpcionVerReportePersonaPasatiempo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        menuOpcionVerReportePersonaPasatiempo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuOpcionVerReportePersonaPasatiempo.setForeground(java.awt.Color.darkGray);
+        menuOpcionVerReportePersonaPasatiempo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reporte.png"))); // NOI18N
+        menuOpcionVerReportePersonaPasatiempo.setText("Ver reporte de PersonaPasatiempo");
+        menuOpcionVerReportePersonaPasatiempo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuOpcionVerReportePersonaPasatiempoActionPerformed(evt);
+            }
+        });
+        menuPersonas.add(menuOpcionVerReportePersonaPasatiempo);
 
         barraMenus.add(menuPersonas);
 
@@ -292,6 +318,18 @@ public class Menu extends javax.swing.JFrame {
         creaJasper("reportePersonaMascota");
     }//GEN-LAST:event_menuOpcionVerReportePersonaMascotaActionPerformed
 
+    private void menuOpcionAdministrarPersonaPasatiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionAdministrarPersonaPasatiempoActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PersonaPasatiempo().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_menuOpcionAdministrarPersonaPasatiempoActionPerformed
+
+    private void menuOpcionVerReportePersonaPasatiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionVerReportePersonaPasatiempoActionPerformed
+       creaJasper("reportePersonaPasatiempo");
+    }//GEN-LAST:event_menuOpcionVerReportePersonaPasatiempoActionPerformed
+
     public void creaJasper(String nombre){
         JasperPrint jasperPrint = null;
         try {
@@ -316,12 +354,14 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuOpcionAdministrarMascotas;
     private javax.swing.JMenuItem menuOpcionAdministrarPasatiempos;
     private javax.swing.JMenuItem menuOpcionAdministrarPersonaMascota;
+    private javax.swing.JMenuItem menuOpcionAdministrarPersonaPasatiempo;
     private javax.swing.JMenuItem menuOpcionAdministrarPersonas;
     private javax.swing.JMenuItem menuOpcionAdministrarTiposMascotas;
     private javax.swing.JMenuItem menuOpcionGenerarReporteMascotas;
     private javax.swing.JMenuItem menuOpcionGenerarReporteTipoMascota;
     private javax.swing.JMenuItem menuOpcionVerReportePasatiempos;
     private javax.swing.JMenuItem menuOpcionVerReportePersonaMascota;
+    private javax.swing.JMenuItem menuOpcionVerReportePersonaPasatiempo;
     private javax.swing.JMenuItem menuOpcionVerReportePersonas;
     private javax.swing.JMenu menuPersonas;
     // End of variables declaration//GEN-END:variables
