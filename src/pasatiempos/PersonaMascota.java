@@ -15,7 +15,7 @@ public class PersonaMascota extends javax.swing.JFrame {
     private ManejadorBD manejadorBD;
 
     /**
-     * Creates new form TipoMascota
+     * Creates new form PersonaMascota
      */
     public PersonaMascota() {
         setResizable(false);
