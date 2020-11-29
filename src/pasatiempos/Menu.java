@@ -97,6 +97,7 @@ public class Menu extends javax.swing.JFrame {
         menuOpcionAdministrarPersonaMascota.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
         menuOpcionAdministrarPersonaMascota.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuOpcionAdministrarPersonaMascota.setForeground(java.awt.Color.darkGray);
+        menuOpcionAdministrarPersonaMascota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hombre-palo.png"))); // NOI18N
         menuOpcionAdministrarPersonaMascota.setMnemonic('d');
         menuOpcionAdministrarPersonaMascota.setText("Administrar PersonaMascota");
         menuOpcionAdministrarPersonaMascota.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +110,7 @@ public class Menu extends javax.swing.JFrame {
         menuOpcionAdministrarPersonaPasatiempo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
         menuOpcionAdministrarPersonaPasatiempo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuOpcionAdministrarPersonaPasatiempo.setForeground(java.awt.Color.darkGray);
+        menuOpcionAdministrarPersonaPasatiempo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rompecabezas.png"))); // NOI18N
         menuOpcionAdministrarPersonaPasatiempo.setMnemonic('d');
         menuOpcionAdministrarPersonaPasatiempo.setText("Administrar PersonaPasatiempo");
         menuOpcionAdministrarPersonaPasatiempo.addActionListener(new java.awt.event.ActionListener() {
