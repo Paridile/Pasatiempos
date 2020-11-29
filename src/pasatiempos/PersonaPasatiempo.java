@@ -124,7 +124,7 @@ private ManejadorBD manejadorBD;
         botonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoAnteriorRegistro.png"))); // NOI18N
         botonAnterior.setMnemonic('n');
         botonAnterior.setText("Anterior");
-        botonAnterior.setToolTipText("Ver anterior registro de una relacion persona mascota");
+        botonAnterior.setToolTipText("Ver anterior registro de una relacion persona pasatiempo");
         botonAnterior.setEnabled(false);
         botonAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +136,7 @@ private ManejadorBD manejadorBD;
         botonUltima.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoUltimoRegistro.png"))); // NOI18N
         botonUltima.setMnemonic('\u00da');
         botonUltima.setText("Última");
-        botonUltima.setToolTipText("Ver último registro de una relacion persona mascota");
+        botonUltima.setToolTipText("Ver último registro de una relacion persona pasatiempo");
         botonUltima.setEnabled(false);
         botonUltima.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +148,7 @@ private ManejadorBD manejadorBD;
         botonNueva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoNuevoRegistro.png"))); // NOI18N
         botonNueva.setMnemonic('N');
         botonNueva.setText("Nueva");
-        botonNueva.setToolTipText("Activar edición de un registro nuevo de tipo de mascota");
+        botonNueva.setToolTipText("Activar edición de un registro nuevo persona pasatiempo");
         botonNueva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonNuevaActionPerformed(evt);
@@ -159,7 +159,7 @@ private ManejadorBD manejadorBD;
         botonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoCancelarEdicion.png"))); // NOI18N
         botonCancelar.setMnemonic('C');
         botonCancelar.setText("Cancelar");
-        botonCancelar.setToolTipText("Cancelar edición del registro actual de una relacion persona mascota");
+        botonCancelar.setToolTipText("Cancelar edición del registro actual de una relacion persona pasatiempo");
         botonCancelar.setEnabled(false);
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,7 +171,7 @@ private ManejadorBD manejadorBD;
         botonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoGuardarRegistro.png"))); // NOI18N
         botonGuardar.setMnemonic('G');
         botonGuardar.setText("Guardar");
-        botonGuardar.setToolTipText("Guarda un registro de una relacion persona mascota");
+        botonGuardar.setToolTipText("Guarda un registro de una relacion persona pasatiempo");
         botonGuardar.setEnabled(false);
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +183,7 @@ private ManejadorBD manejadorBD;
         botonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoActualizarRegistro.png"))); // NOI18N
         botonActualizar.setMnemonic('A');
         botonActualizar.setText("Actualizar");
-        botonActualizar.setToolTipText("Actualizar registro actual de una relacion persona mascota");
+        botonActualizar.setToolTipText("Actualizar registro actual de una relacion persona pasatiempo");
         botonActualizar.setEnabled(false);
         botonActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,7 +195,7 @@ private ManejadorBD manejadorBD;
         botonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoEditarRegistro.png"))); // NOI18N
         botonEditar.setMnemonic('E');
         botonEditar.setText("Editar");
-        botonEditar.setToolTipText("Activar edición del registro actual de de una relacion persona mascota");
+        botonEditar.setToolTipText("Activar edición del registro actual de de una relacion persona pasatiempo");
         botonEditar.setEnabled(false);
         botonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +207,7 @@ private ManejadorBD manejadorBD;
         botonPrimera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoPrimerRegistro.png"))); // NOI18N
         botonPrimera.setMnemonic('P');
         botonPrimera.setText("Primera");
-        botonPrimera.setToolTipText("Ver primer registro de una relacion persona mascota");
+        botonPrimera.setToolTipText("Ver primer registro de una relacion persona pasatiempo");
         botonPrimera.setEnabled(false);
         botonPrimera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,7 +219,7 @@ private ManejadorBD manejadorBD;
         botonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoBorrarRegistro.png"))); // NOI18N
         botonBorrar.setMnemonic('B');
         botonBorrar.setText("Borrar");
-        botonBorrar.setToolTipText("Borrar registro actual de una relacion persona mascota");
+        botonBorrar.setToolTipText("Borrar registro actual de una relacion persona pasatiempo");
         botonBorrar.setEnabled(false);
         botonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,7 +231,7 @@ private ManejadorBD manejadorBD;
         botonSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoSiguienteRegistro.png"))); // NOI18N
         botonSiguiente.setMnemonic('S');
         botonSiguiente.setText("Siguiente");
-        botonSiguiente.setToolTipText("Ver siguiente registro de una relacion persona mascota");
+        botonSiguiente.setToolTipText("Ver siguiente registro de una relacion persona pasatiempo");
         botonSiguiente.setEnabled(false);
         botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

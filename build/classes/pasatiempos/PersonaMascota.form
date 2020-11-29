@@ -354,7 +354,7 @@
         </Property>
         <Property name="mnemonic" type="int" value="78"/>
         <Property name="text" type="java.lang.String" value="Nueva"/>
-        <Property name="toolTipText" type="java.lang.String" value="Activar edici&#xf3;n de un registro nuevo de tipo de mascota"/>
+        <Property name="toolTipText" type="java.lang.String" value="Activar edici&#xf3;n de un registro nuevo de tipo persona mascota"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonNueva1ActionPerformed"/>

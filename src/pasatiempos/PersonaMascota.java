@@ -335,7 +335,7 @@ public class PersonaMascota extends javax.swing.JFrame {
         botonNueva1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoNuevoRegistro.png"))); // NOI18N
         botonNueva1.setMnemonic('N');
         botonNueva1.setText("Nueva");
-        botonNueva1.setToolTipText("Activar edición de un registro nuevo de tipo de mascota");
+        botonNueva1.setToolTipText("Activar edición de un registro nuevo de tipo persona mascota");
         botonNueva1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonNueva1ActionPerformed(evt);

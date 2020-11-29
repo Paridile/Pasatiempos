@@ -175,7 +175,7 @@
         </Property>
         <Property name="mnemonic" type="int" value="110"/>
         <Property name="text" type="java.lang.String" value="Anterior"/>
-        <Property name="toolTipText" type="java.lang.String" value="Ver anterior registro de una relacion persona mascota"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ver anterior registro de una relacion persona pasatiempo"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -192,7 +192,7 @@
         </Property>
         <Property name="mnemonic" type="int" value="218"/>
         <Property name="text" type="java.lang.String" value="&#xda;ltima"/>
-        <Property name="toolTipText" type="java.lang.String" value="Ver &#xfa;ltimo registro de una relacion persona mascota"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ver &#xfa;ltimo registro de una relacion persona pasatiempo"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -209,7 +209,7 @@
         </Property>
         <Property name="mnemonic" type="int" value="78"/>
         <Property name="text" type="java.lang.String" value="Nueva"/>
-        <Property name="toolTipText" type="java.lang.String" value="Activar edici&#xf3;n de un registro nuevo de tipo de mascota"/>
+        <Property name="toolTipText" type="java.lang.String" value="Activar edici&#xf3;n de un registro nuevo persona pasatiempo"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonNuevaActionPerformed"/>
@@ -225,7 +225,7 @@
         </Property>
         <Property name="mnemonic" type="int" value="67"/>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
-        <Property name="toolTipText" type="java.lang.String" value="Cancelar edici&#xf3;n del registro actual de una relacion persona mascota"/>
+        <Property name="toolTipText" type="java.lang.String" value="Cancelar edici&#xf3;n del registro actual de una relacion persona pasatiempo"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -242,7 +242,7 @@
         </Property>
         <Property name="mnemonic" type="int" value="71"/>
         <Property name="text" type="java.lang.String" value="Guardar"/>
-        <Property name="toolTipText" type="java.lang.String" value="Guarda un registro de una relacion persona mascota"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guarda un registro de una relacion persona pasatiempo"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -259,7 +259,7 @@
         </Property>
         <Property name="mnemonic" type="int" value="65"/>
         <Property name="text" type="java.lang.String" value="Actualizar"/>
-        <Property name="toolTipText" type="java.lang.String" value="Actualizar registro actual de una relacion persona mascota"/>
+        <Property name="toolTipText" type="java.lang.String" value="Actualizar registro actual de una relacion persona pasatiempo"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -276,7 +276,7 @@
         </Property>
         <Property name="mnemonic" type="int" value="69"/>
         <Property name="text" type="java.lang.String" value="Editar"/>
-        <Property name="toolTipText" type="java.lang.String" value="Activar edici&#xf3;n del registro actual de de una relacion persona mascota"/>
+        <Property name="toolTipText" type="java.lang.String" value="Activar edici&#xf3;n del registro actual de de una relacion persona pasatiempo"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -293,7 +293,7 @@
         </Property>
         <Property name="mnemonic" type="int" value="80"/>
         <Property name="text" type="java.lang.String" value="Primera"/>
-        <Property name="toolTipText" type="java.lang.String" value="Ver primer registro de una relacion persona mascota"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ver primer registro de una relacion persona pasatiempo"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -310,7 +310,7 @@
         </Property>
         <Property name="mnemonic" type="int" value="66"/>
         <Property name="text" type="java.lang.String" value="Borrar"/>
-        <Property name="toolTipText" type="java.lang.String" value="Borrar registro actual de una relacion persona mascota"/>
+        <Property name="toolTipText" type="java.lang.String" value="Borrar registro actual de una relacion persona pasatiempo"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -327,7 +327,7 @@
         </Property>
         <Property name="mnemonic" type="int" value="83"/>
         <Property name="text" type="java.lang.String" value="Siguiente"/>
-        <Property name="toolTipText" type="java.lang.String" value="Ver siguiente registro de una relacion persona mascota"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ver siguiente registro de una relacion persona pasatiempo"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
