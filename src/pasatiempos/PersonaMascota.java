@@ -94,9 +94,9 @@ public class PersonaMascota extends javax.swing.JFrame {
             textIdPersona.setText(manejadorBD.getCampoRegistroActual("idPersona").toString());
             textIdMascota.setText(manejadorBD.getCampoRegistroActual("idMascota").toString());
             textfechaAdquisicion.setText(manejadorBD.getCampoRegistroActual("fechaAdquisicion").toString());
-            botonNueva.setEnabled(true);
+            botonNueva1.setEnabled(true);
             botonEditar.setEnabled(true);
-            botonCancelar.setEnabled(false);
+            botonCancelar1.setEnabled(false);
             botonBorrar.setEnabled(true);
             botonGuardar.setEnabled(false);
             botonActualizar.setEnabled(false);
@@ -104,10 +104,10 @@ public class PersonaMascota extends javax.swing.JFrame {
         }
     	else {
             borraEntradasCamposTexto();
-            botonNueva.setEnabled(true);
+            botonNueva1.setEnabled(true);
             botonEditar.setEnabled(false);
             botonBorrar.setEnabled(false);
-            botonCancelar.setEnabled(false);
+            botonCancelar1.setEnabled(false);
             botonGuardar.setEnabled(false);            
             cambiaActivacionBotonesNavegacionRegistros(false);
     	}
@@ -451,11 +451,11 @@ public class PersonaMascota extends javax.swing.JFrame {
     private void botonNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaActionPerformed
         nuevoRegistro();
         cambiaActivacionBotonesNavegacionRegistros(false);
-        botonNueva.setEnabled(false);
+        botonNueva1.setEnabled(false);
         botonEditar.setEnabled(false);
         botonGuardar.setEnabled(true);
         botonBorrar.setEnabled(false);
-        botonCancelar.setEnabled(true);
+        botonCancelar1.setEnabled(true);
     }//GEN-LAST:event_botonNuevaActionPerformed
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
@@ -466,10 +466,10 @@ public class PersonaMascota extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Los datos del la tabla persona mascota han sido guardados.");
             manejadorBD.consultaRegistros("personamascota");
             cambiaActivacionBotonesNavegacionRegistros(true);
-            botonNueva.setEnabled(true);
+            botonNueva1.setEnabled(true);
             botonGuardar.setEnabled(false);
             botonEditar.setEnabled(true);
-            botonCancelar.setEnabled(false);
+            botonCancelar1.setEnabled(false);
             botonBorrar.setEnabled(true);
         }
         else {
@@ -488,11 +488,11 @@ public class PersonaMascota extends javax.swing.JFrame {
         if(respuesta == 0) {
             insertaRegistro();
             manejadorBD.actualizaRegistroActual();
-            botonCancelar.setEnabled(false);
+            botonCancelar1.setEnabled(false);
             botonActualizar.setEnabled(false);
             botonEditar.setEnabled(true);
             botonBorrar.setEnabled(true);
-            botonNueva.setEnabled(true);
+            botonNueva1.setEnabled(true);
             cambiaActivacionBotonesNavegacionRegistros(true);
         }
         else {
@@ -502,10 +502,10 @@ public class PersonaMascota extends javax.swing.JFrame {
 
     private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
         cambiaActivacionCamposTexto(true);
-        botonNueva.setEnabled(false);
+        botonNueva1.setEnabled(false);
         botonBorrar.setEnabled(false);
         botonEditar.setEnabled(false);
-        botonCancelar.setEnabled(true);
+        botonCancelar1.setEnabled(true);
         botonActualizar.setEnabled(true);
         cambiaActivacionBotonesNavegacionRegistros(false);
     }//GEN-LAST:event_botonEditarActionPerformed
@@ -548,11 +548,11 @@ public class PersonaMascota extends javax.swing.JFrame {
     private void botonNueva1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNueva1ActionPerformed
         nuevoRegistro();
         cambiaActivacionBotonesNavegacionRegistros(false);
-        botonNueva.setEnabled(false);
+        botonNueva1.setEnabled(false);
         botonEditar.setEnabled(false);
         botonGuardar.setEnabled(true);
         botonBorrar.setEnabled(false);
-        botonCancelar.setEnabled(true);
+        botonCancelar1.setEnabled(true);
     }//GEN-LAST:event_botonNueva1ActionPerformed
 
     private void botonCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelar1ActionPerformed
