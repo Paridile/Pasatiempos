@@ -239,7 +239,7 @@ public class PersonaMascota extends javax.swing.JFrame {
         botonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoGuardarRegistro.png"))); // NOI18N
         botonGuardar.setMnemonic('G');
         botonGuardar.setText("Guardar");
-        botonGuardar.setToolTipText("Guarda un registro nuevo de tipo de mascota");
+        botonGuardar.setToolTipText("Guarda un registro de una relacion persona mascota");
         botonGuardar.setEnabled(false);
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,7 +251,7 @@ public class PersonaMascota extends javax.swing.JFrame {
         botonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoActualizarRegistro.png"))); // NOI18N
         botonActualizar.setMnemonic('A');
         botonActualizar.setText("Actualizar");
-        botonActualizar.setToolTipText("Actualizar registro actual de tipo de mascota");
+        botonActualizar.setToolTipText("Actualizar registro actual de una relacion persona mascota");
         botonActualizar.setEnabled(false);
         botonActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,7 +263,7 @@ public class PersonaMascota extends javax.swing.JFrame {
         botonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoEditarRegistro.png"))); // NOI18N
         botonEditar.setMnemonic('E');
         botonEditar.setText("Editar");
-        botonEditar.setToolTipText("Activar edición del registro actual de tipo de mascota");
+        botonEditar.setToolTipText("Activar edición del registro actual de de una relacion persona mascota");
         botonEditar.setEnabled(false);
         botonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,7 +275,7 @@ public class PersonaMascota extends javax.swing.JFrame {
         botonPrimera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoPrimerRegistro.png"))); // NOI18N
         botonPrimera.setMnemonic('P');
         botonPrimera.setText("Primera");
-        botonPrimera.setToolTipText("Ver primer registro de tipo de mascota");
+        botonPrimera.setToolTipText("Ver primer registro de una relacion persona mascota");
         botonPrimera.setEnabled(false);
         botonPrimera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -287,7 +287,7 @@ public class PersonaMascota extends javax.swing.JFrame {
         botonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoBorrarRegistro.png"))); // NOI18N
         botonBorrar.setMnemonic('B');
         botonBorrar.setText("Borrar");
-        botonBorrar.setToolTipText("Borrar registro actual de tipo de mascota");
+        botonBorrar.setToolTipText("Borrar registro actual de una relacion persona mascota");
         botonBorrar.setEnabled(false);
         botonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,7 +299,7 @@ public class PersonaMascota extends javax.swing.JFrame {
         botonSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoSiguienteRegistro.png"))); // NOI18N
         botonSiguiente.setMnemonic('S');
         botonSiguiente.setText("Siguiente");
-        botonSiguiente.setToolTipText("Ver siguiente registro de tipo de mascota");
+        botonSiguiente.setToolTipText("Ver siguiente registro de una relacion persona mascota");
         botonSiguiente.setEnabled(false);
         botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -311,7 +311,7 @@ public class PersonaMascota extends javax.swing.JFrame {
         botonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoAnteriorRegistro.png"))); // NOI18N
         botonAnterior.setMnemonic('n');
         botonAnterior.setText("Anterior");
-        botonAnterior.setToolTipText("Ver anterior registro de tipo de mascota");
+        botonAnterior.setToolTipText("Ver anterior registro de una relacion persona mascota");
         botonAnterior.setEnabled(false);
         botonAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -323,7 +323,7 @@ public class PersonaMascota extends javax.swing.JFrame {
         botonUltima.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoUltimoRegistro.png"))); // NOI18N
         botonUltima.setMnemonic('\u00da');
         botonUltima.setText("Última");
-        botonUltima.setToolTipText("Ver último registro de tipo de mascota");
+        botonUltima.setToolTipText("Ver último registro de una relacion persona mascota");
         botonUltima.setEnabled(false);
         botonUltima.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -346,7 +346,7 @@ public class PersonaMascota extends javax.swing.JFrame {
         botonCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoCancelarEdicion.png"))); // NOI18N
         botonCancelar1.setMnemonic('C');
         botonCancelar1.setText("Cancelar");
-        botonCancelar1.setToolTipText("Cancelar edición del registro actual de tipo de mascota");
+        botonCancelar1.setToolTipText("Cancelar edición del registro actual de una relacion persona mascota");
         botonCancelar1.setEnabled(false);
         botonCancelar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -377,32 +377,33 @@ public class PersonaMascota extends javax.swing.JFrame {
                         .addComponent(botonBorrar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(botonActualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botonPrimera)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botonUltima)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botonAnterior)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botonSiguiente)
-                        .addGap(0, 29, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(textIdMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(botonActualizar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonPrimera)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonUltima)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonAnterior)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonSiguiente))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(textIdMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(40, 40, 40)
+                                        .addComponent(textIdPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(40, 40, 40)
-                                .addComponent(textIdPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel4)
-                        .addGap(39, 39, 39)
-                        .addComponent(textfechaAdquisicion, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(jLabel4)
+                                .addGap(39, 39, 39)
+                                .addComponent(textfechaAdquisicion, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 29, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
