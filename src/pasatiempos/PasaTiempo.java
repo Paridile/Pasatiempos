@@ -233,7 +233,7 @@ public class PasaTiempo extends javax.swing.JFrame {
         botonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoGuardarRegistro.png"))); // NOI18N
         botonGuardar.setMnemonic('G');
         botonGuardar.setText("Guardar");
-        botonGuardar.setToolTipText("Guarda un registro nuevo de tipo de mascota");
+        botonGuardar.setToolTipText("Guarda un registro nuevo de tipo pasatiempo");
         botonGuardar.setEnabled(false);
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,7 +245,7 @@ public class PasaTiempo extends javax.swing.JFrame {
         botonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoActualizarRegistro.png"))); // NOI18N
         botonActualizar.setMnemonic('A');
         botonActualizar.setText("Actualizar");
-        botonActualizar.setToolTipText("Actualizar registro actual de tipo de mascota");
+        botonActualizar.setToolTipText("Actualizar registro actual de tipo de pasatiempo");
         botonActualizar.setEnabled(false);
         botonActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,7 +257,7 @@ public class PasaTiempo extends javax.swing.JFrame {
         botonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoEditarRegistro.png"))); // NOI18N
         botonEditar.setMnemonic('E');
         botonEditar.setText("Editar");
-        botonEditar.setToolTipText("Activar edición del registro actual de tipo de mascota");
+        botonEditar.setToolTipText("Activar edición del registro actual de tipo pasatiempo");
         botonEditar.setEnabled(false);
         botonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,7 +269,7 @@ public class PasaTiempo extends javax.swing.JFrame {
         botonPrimera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoPrimerRegistro.png"))); // NOI18N
         botonPrimera.setMnemonic('P');
         botonPrimera.setText("Primera");
-        botonPrimera.setToolTipText("Ver primer registro de tipo de mascota");
+        botonPrimera.setToolTipText("Ver primer registro de tipo pasatiempo");
         botonPrimera.setEnabled(false);
         botonPrimera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,7 +281,7 @@ public class PasaTiempo extends javax.swing.JFrame {
         botonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoBorrarRegistro.png"))); // NOI18N
         botonBorrar.setMnemonic('B');
         botonBorrar.setText("Borrar");
-        botonBorrar.setToolTipText("Borrar registro actual de tipo de mascota");
+        botonBorrar.setToolTipText("Borrar registro actual de tipo pasatiempo");
         botonBorrar.setEnabled(false);
         botonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,7 +293,7 @@ public class PasaTiempo extends javax.swing.JFrame {
         botonSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoSiguienteRegistro.png"))); // NOI18N
         botonSiguiente.setMnemonic('S');
         botonSiguiente.setText("Siguiente");
-        botonSiguiente.setToolTipText("Ver siguiente registro de tipo de mascota");
+        botonSiguiente.setToolTipText("Ver siguiente registro de tipo pasatiempo");
         botonSiguiente.setEnabled(false);
         botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,7 +305,7 @@ public class PasaTiempo extends javax.swing.JFrame {
         botonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoAnteriorRegistro.png"))); // NOI18N
         botonAnterior.setMnemonic('n');
         botonAnterior.setText("Anterior");
-        botonAnterior.setToolTipText("Ver anterior registro de tipo de mascota");
+        botonAnterior.setToolTipText("Ver anterior registro de tipo pasatiempo");
         botonAnterior.setEnabled(false);
         botonAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,7 +317,7 @@ public class PasaTiempo extends javax.swing.JFrame {
         botonUltima.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoUltimoRegistro.png"))); // NOI18N
         botonUltima.setMnemonic('\u00da');
         botonUltima.setText("Última");
-        botonUltima.setToolTipText("Ver último registro de tipo de mascota");
+        botonUltima.setToolTipText("Ver último registro de tipo pasatiempo");
         botonUltima.setEnabled(false);
         botonUltima.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -329,7 +329,7 @@ public class PasaTiempo extends javax.swing.JFrame {
         botonNueva1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoNuevoRegistro.png"))); // NOI18N
         botonNueva1.setMnemonic('N');
         botonNueva1.setText("Nueva");
-        botonNueva1.setToolTipText("Activar edición de un registro nuevo de tipo de mascota");
+        botonNueva1.setToolTipText("Activar edición de un registro nuevo de tipo pasatiempo");
         botonNueva1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonNueva1ActionPerformed(evt);
@@ -340,7 +340,7 @@ public class PasaTiempo extends javax.swing.JFrame {
         botonCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoCancelarEdicion.png"))); // NOI18N
         botonCancelar1.setMnemonic('C');
         botonCancelar1.setText("Cancelar");
-        botonCancelar1.setToolTipText("Cancelar edición del registro actual de tipo de mascota");
+        botonCancelar1.setToolTipText("Cancelar edición del registro actual de tipo pasatiempo");
         botonCancelar1.setEnabled(false);
         botonCancelar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
