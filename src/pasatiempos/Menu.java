@@ -91,6 +91,7 @@ public class Menu extends javax.swing.JFrame {
         menuOpcionVerReportePersonas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
         menuOpcionVerReportePersonas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuOpcionVerReportePersonas.setForeground(java.awt.Color.darkGray);
+        menuOpcionVerReportePersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reporte.png"))); // NOI18N
         menuOpcionVerReportePersonas.setText("Ver reporte de Personas");
         menuOpcionVerReportePersonas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

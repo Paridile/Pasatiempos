@@ -9,23 +9,23 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author pablo
+ * @author Uriel
  */
-public class TipoMascota extends javax.swing.JFrame {
+public class PersonaMascota extends javax.swing.JFrame {
     private ManejadorBD manejadorBD;
 
     /**
-     * Creates new form TipoMascota
+     * Creates new form PersonaMascota
      */
-    public TipoMascota() {
+    public PersonaMascota() {
         setResizable(false);
         initComponents();
         manejadorBD = new ManejadorBD();
     	manejadorBD.conectarMySQL8("localhost", "pasatiempos", "root", "root", 3307);
-        muestraVentana("tipomascota", "");       
+        muestraVentana("personamascota", "");       
     }
 
-    private void muestraVentana(String tabla, String condicion) {
+        private void muestraVentana(String tabla, String condicion) {
         if(condicion != null && !condicion.equals("")) {
             if(manejadorBD.consultaRegistros(tabla, condicion) != 0) {
                 muestraRegistroActual();
@@ -52,37 +52,48 @@ public class TipoMascota extends javax.swing.JFrame {
     private boolean validaCampos() {
         boolean correcto = true;
         try {
-            Integer.parseInt(textIdTipoMascota.getText());                    
+            Integer.parseInt(textIdPersona.getText());                    
         } catch(NumberFormatException nfe) {
             JOptionPane.showMessageDialog(this,
-                    "Se debe introducir un valor entero para el Id del tipo de mascota.",
+                    "Se debe introducir un valor entero para el Id del tipo de persona.",
                     "Error en el campo Id persona",
                     JOptionPane.ERROR_MESSAGE);
             correcto = false;
         }
         if(correcto) {
-            if(textDescripcionTipoMascota.getText().equals("")) {
-                JOptionPane.showMessageDialog(this,
-                    "Se deben introducir los la descripcion del tipo de mascota",
-                    "Error en el campo nombres",
-                    JOptionPane.ERROR_MESSAGE);
-                correcto = false;
-            }
+                if(textIdMascota.getText().equals("")) {
+                    JOptionPane.showMessageDialog(this,
+                        "Se debe introducir un valor entero para el Id del tipo de Mascota.",
+                        "Error en el campo Id Mascota",
+                        JOptionPane.ERROR_MESSAGE);
+                    correcto = false;
+                }   
+        }
+        if(correcto) {
+                if(textfechaAdquisicion.getText().equals("")) {
+                    JOptionPane.showMessageDialog(this,
+                        "Se debe introducir la fecha de adquisicion de la Mascota.",
+                        "Error en el campo Fecha de Adquisicion",
+                        JOptionPane.ERROR_MESSAGE);
+                    correcto = false;
+                }
         }
         return correcto;
     }
     
     private void insertaRegistro(){
         cambiaActivacionCamposTexto(false);
-        manejadorBD.insertarCampo("IdTipoMascota", textIdTipoMascota.getText());
-        manejadorBD.insertarCampo("descripcion", textDescripcionTipoMascota.getText());
+        manejadorBD.insertarCampo("idPersona", textIdPersona.getText());
+        manejadorBD.insertarCampo("idMascota", textIdMascota.getText());
+        manejadorBD.insertarCampo("fechaAdquisicion", textfechaAdquisicion.getText());
     }
     
     private void muestraRegistroActual() {
     	if(manejadorBD.indiceActual() != 0) {
             manejadorBD.refrescaRegistroActual();
-            textIdTipoMascota.setText(manejadorBD.getCampoRegistroActual("IdTipoMascota").toString());
-            textDescripcionTipoMascota.setText(manejadorBD.getCampoRegistroActual("descripcion").toString());
+            textIdPersona.setText(manejadorBD.getCampoRegistroActual("idPersona").toString());
+            textIdMascota.setText(manejadorBD.getCampoRegistroActual("idMascota").toString());
+            textfechaAdquisicion.setText(manejadorBD.getCampoRegistroActual("fechaAdquisicion").toString());
             botonNueva.setEnabled(true);
             botonEditar.setEnabled(true);
             botonCancelar.setEnabled(false);
@@ -103,13 +114,15 @@ public class TipoMascota extends javax.swing.JFrame {
     }
     
     private void cambiaActivacionCamposTexto(boolean estado) {
-        textIdTipoMascota.setEnabled(estado);
-        textDescripcionTipoMascota.setEnabled(estado);
+        textIdPersona.setEnabled(estado);
+        textIdMascota.setEnabled(estado);
+        textfechaAdquisicion.setEnabled(estado);
     }
     
     private void borraEntradasCamposTexto() {
-        textIdTipoMascota.setText("");        
-        textDescripcionTipoMascota.setText("");        
+        textIdPersona.setText("");   
+        textIdMascota.setText("");
+        textfechaAdquisicion.setText("");        
     }
     
     private void nuevoRegistro() {
@@ -151,7 +164,9 @@ public class TipoMascota extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        textIdTipoMascota = new javax.swing.JTextField();
+        textIdPersona = new javax.swing.JTextField();
+        textIdMascota = new javax.swing.JTextField();
+        textfechaAdquisicion = new javax.swing.JTextField();
         botonGuardar = new javax.swing.JButton();
         botonActualizar = new javax.swing.JButton();
         botonEditar = new javax.swing.JButton();
@@ -162,8 +177,7 @@ public class TipoMascota extends javax.swing.JFrame {
         botonUltima = new javax.swing.JButton();
         botonNueva1 = new javax.swing.JButton();
         botonCancelar1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        textDescripcionTipoMascota = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
 
         botonNueva.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         botonNueva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoNuevoRegistro.png"))); // NOI18N
@@ -191,19 +205,33 @@ public class TipoMascota extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(105, 77, 131));
-        jLabel1.setText("Tipos de mascotas");
+        jLabel1.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel1.setText("Persona Mascota");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("IdTipoMascota");
+        jLabel2.setText("IdPersona");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setText("Descripción");
+        jLabel3.setText("idMascota");
 
-        textIdTipoMascota.setEnabled(false);
-        textIdTipoMascota.addActionListener(new java.awt.event.ActionListener() {
+        textIdPersona.setEnabled(false);
+        textIdPersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textIdTipoMascotaActionPerformed(evt);
+                textIdPersonaActionPerformed(evt);
+            }
+        });
+
+        textIdMascota.setEnabled(false);
+        textIdMascota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textIdMascotaActionPerformed(evt);
+            }
+        });
+
+        textfechaAdquisicion.setEnabled(false);
+        textfechaAdquisicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfechaAdquisicionActionPerformed(evt);
             }
         });
 
@@ -326,10 +354,8 @@ public class TipoMascota extends javax.swing.JFrame {
             }
         });
 
-        textDescripcionTipoMascota.setColumns(20);
-        textDescripcionTipoMascota.setRows(5);
-        textDescripcionTipoMascota.setEnabled(false);
-        jScrollPane1.setViewportView(textDescripcionTipoMascota);
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setText("Fecha de adquisicion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -339,28 +365,16 @@ public class TipoMascota extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(botonNueva1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(botonGuardar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(botonEditar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(textIdTipoMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botonNueva1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botonGuardar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botonEditar)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(botonCancelar1)
-                                .addGap(18, 18, 18)
-                                .addComponent(botonBorrar))
-                            .addComponent(jScrollPane1))
+                        .addComponent(botonCancelar1)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonBorrar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botonActualizar)
@@ -372,11 +386,27 @@ public class TipoMascota extends javax.swing.JFrame {
                         .addComponent(botonAnterior)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(botonSiguiente)
-                        .addGap(0, 29, Short.MAX_VALUE))))
+                        .addGap(0, 29, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(textIdMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(40, 40, 40)
+                                .addComponent(textIdPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel4)
+                        .addGap(39, 39, 39)
+                        .addComponent(textfechaAdquisicion, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(214, 214, 214))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(250, 250, 250))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -384,13 +414,16 @@ public class TipoMascota extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(textIdTipoMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(textIdPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(textfechaAdquisicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(textIdMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonNueva1)
                     .addComponent(botonGuardar)
@@ -410,9 +443,9 @@ public class TipoMascota extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textIdTipoMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdTipoMascotaActionPerformed
+    private void textIdPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdPersonaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textIdTipoMascotaActionPerformed
+    }//GEN-LAST:event_textIdPersonaActionPerformed
 
     private void botonNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaActionPerformed
         nuevoRegistro();
@@ -426,11 +459,11 @@ public class TipoMascota extends javax.swing.JFrame {
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         if(validaCampos()) {
-            manejadorBD.iniciarBloque("tipomascota");
+            manejadorBD.iniciarBloque("personamascota");
             insertaRegistro();
             manejadorBD.cerrarBloque();
-            JOptionPane.showMessageDialog(this, "Los datos del tipo de la mascota han sido guardados.");
-            manejadorBD.consultaRegistros("tipomascota");
+            JOptionPane.showMessageDialog(this, "Los datos del la tabla persona mascota han sido guardados.");
+            manejadorBD.consultaRegistros("personamascota");
             cambiaActivacionBotonesNavegacionRegistros(true);
             botonNueva.setEnabled(true);
             botonGuardar.setEnabled(false);
@@ -440,15 +473,15 @@ public class TipoMascota extends javax.swing.JFrame {
         }
         else {
             JOptionPane.showMessageDialog(this,
-                "No se pueden guardar los datos del tipo de mascota.",
-                "Error al guardar los datos del tipo de mascota",
+                "No se pueden guardar los datos de la tabla persona mascota.",
+                "Error al guardar los datos del tipo de la persona mascota",
                 JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_botonGuardarActionPerformed
 
     private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
         int respuesta = JOptionPane.showConfirmDialog(this,
-            "¿Desea actualizar el registro del tipo de mascota?",
+            "¿Desea actualizar el registro de la tabla persona mascota?",
             "Confirme su respuesta",
             JOptionPane.YES_NO_OPTION);
         if(respuesta == 0) {
@@ -462,7 +495,7 @@ public class TipoMascota extends javax.swing.JFrame {
             cambiaActivacionBotonesNavegacionRegistros(true);
         }
         else {
-            JOptionPane.showMessageDialog(this, "Se canceló la actualización del registro del tipo de mascota");
+            JOptionPane.showMessageDialog(this, "Se canceló la actualización de la tabla persona mascota");
         }
     }//GEN-LAST:event_botonActualizarActionPerformed
 
@@ -487,7 +520,7 @@ public class TipoMascota extends javax.swing.JFrame {
 
     private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
         int respuesta = JOptionPane.showConfirmDialog(this,
-            "¿Desea eliminar el registro del tipo de mascota?",
+            "¿Desea eliminar el registro de la la tabla persona mascota?",
             "Confirme su respuesta",
             JOptionPane.YES_NO_OPTION);
         if(respuesta == 0) {
@@ -495,7 +528,7 @@ public class TipoMascota extends javax.swing.JFrame {
             siguienteRegistro();
         }
         else {
-            JOptionPane.showMessageDialog(this, "Se canceló la eliminación del registro del tipo de mascota");
+            JOptionPane.showMessageDialog(this, "Se canceló la eliminación de la tabla persona mascota");
         }
     }//GEN-LAST:event_botonBorrarActionPerformed
 
@@ -526,6 +559,14 @@ public class TipoMascota extends javax.swing.JFrame {
         muestraRegistroActual();
     }//GEN-LAST:event_botonCancelar1ActionPerformed
 
+    private void textIdMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdMascotaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textIdMascotaActionPerformed
+
+    private void textfechaAdquisicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfechaAdquisicionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfechaAdquisicionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonActualizar;
@@ -543,8 +584,9 @@ public class TipoMascota extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea textDescripcionTipoMascota;
-    private javax.swing.JTextField textIdTipoMascota;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField textIdMascota;
+    private javax.swing.JTextField textIdPersona;
+    private javax.swing.JTextField textfechaAdquisicion;
     // End of variables declaration//GEN-END:variables
 }
