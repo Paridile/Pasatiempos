@@ -26,20 +26,12 @@ private ManejadorBD manejadorBD;
         manejadorBD = new ManejadorBD();
     	manejadorBD.conectarMySQL8("localhost", "pasatiempos", "root", "root", 3307);
         muestraVentana("personapasatiempo", "");
-        ResultSet r = manejadorBD.ejecutaConsultaGeneral("SELECT * FROM pasatiempos.persona");
-        try {
-            while(r.next()){            
-                boxIdPersona.addItem(r.getString("idPersona"));                        
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     
        private void muestraRegistroActual() {
     	if(manejadorBD.indiceActual() != 0) {
             manejadorBD.refrescaRegistroActual();
-            boxIdPersona.setSelectedItem(manejadorBD.getCampoRegistroActual("idPersona").toString());
+            textIdPersona.setText(manejadorBD.getCampoRegistroActual("idPersona").toString());
             textIdPasatiempo.setText(manejadorBD.getCampoRegistroActual("idPasatiempo").toString());
             textHoras.setText(manejadorBD.getCampoRegistroActual("horasSemana").toString());
             textAPasatiempo.setText(manejadorBD.getCampoRegistroActual("añosPasatiempo").toString());
@@ -66,7 +58,7 @@ private ManejadorBD manejadorBD;
         textAPasatiempo.setText("");        
         textHoras.setText("");        
         textIdPasatiempo.setText("");        
-        boxIdPersona.setSelectedIndex(0);                
+        textIdPersona.setText("");                
     }
     
     private void cambiaActivacionBotonesNavegacionRegistros(boolean estado) {
@@ -121,7 +113,7 @@ private ManejadorBD manejadorBD;
         textIdPasatiempo = new javax.swing.JTextField();
         textHoras = new javax.swing.JTextField();
         textAPasatiempo = new javax.swing.JTextField();
-        boxIdPersona = new javax.swing.JComboBox<>();
+        textIdPersona = new javax.swing.JTextField();
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("IdPersona");
@@ -269,8 +261,12 @@ private ManejadorBD manejadorBD;
 
         textAPasatiempo.setEnabled(false);
 
-        boxIdPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
-        boxIdPersona.setEnabled(false);
+        textIdPersona.setEnabled(false);
+        textIdPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textIdPersonaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -309,8 +305,8 @@ private ManejadorBD manejadorBD;
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(boxIdPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(49, 49, 49)
+                                        .addComponent(textIdPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -333,13 +329,13 @@ private ManejadorBD manejadorBD;
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addGap(15, 15, 15)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(boxIdPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
+                            .addComponent(textIdPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(textIdPasatiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -468,6 +464,10 @@ private ManejadorBD manejadorBD;
         siguienteRegistro();
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
+    private void textIdPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdPersonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textIdPersonaActionPerformed
+
        private void nuevoRegistro() {
         borraEntradasCamposTexto();
         cambiaActivacionCamposTexto(true);
@@ -495,7 +495,7 @@ private ManejadorBD manejadorBD;
 
     private void insertaRegistro(){
         cambiaActivacionCamposTexto(false);
-        manejadorBD.insertarCampo("idPersona", boxIdPersona.getSelectedItem());
+        manejadorBD.insertarCampo("idPersona", textIdPersona.getText());
         manejadorBD.insertarCampo("idPasatiempo", textIdPasatiempo.getText());
         manejadorBD.insertarCampo("añosPasatiempo", textAPasatiempo.getText());
         manejadorBD.insertarCampo("horasSemana", textHoras.getText());
@@ -505,13 +505,13 @@ private ManejadorBD manejadorBD;
         textAPasatiempo.setEnabled(estado);
         textHoras.setEnabled(estado);
         textIdPasatiempo.setEnabled(estado);
-        boxIdPersona.setEnabled(estado);
+        textIdPersona.setEnabled(estado);
     }
     
       private boolean validaCampos() {
         boolean correcto = true;
         try {
-            Integer.parseInt(boxIdPersona.getSelectedItem().toString());                    
+            Integer.parseInt(textIdPersona.getText());                    
         } catch(NumberFormatException nfe) {
             JOptionPane.showMessageDialog(this,
                     "Se debe introducir un valor entero para el Id de la persona.",
@@ -561,7 +561,6 @@ private ManejadorBD manejadorBD;
     private javax.swing.JButton botonPrimera;
     private javax.swing.JButton botonSiguiente;
     private javax.swing.JButton botonUltima;
-    private javax.swing.JComboBox<String> boxIdPersona;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -571,5 +570,6 @@ private ManejadorBD manejadorBD;
     private javax.swing.JTextField textAPasatiempo;
     private javax.swing.JTextField textHoras;
     private javax.swing.JTextField textIdPasatiempo;
+    private javax.swing.JTextField textIdPersona;
     // End of variables declaration//GEN-END:variables
 }
