@@ -22,7 +22,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="menuOpcionAdministrarPersonas">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+A"/>
+                  <KeyStroke key="Ctrl+P"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -64,7 +64,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="menuOpcionAdministrarPersonaMascota">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+O"/>
+                  <KeyStroke key="Ctrl+A"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -85,7 +85,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="menuOpcionAdministrarPersonaPasatiempo">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+T"/>
+                  <KeyStroke key="Ctrl+B"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -106,7 +106,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="menuOpcionVerReportePersonas">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+V"/>
+                  <KeyStroke key="Shift+Ctrl+P"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -126,7 +126,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="menuOpcionVerReportePasatiempos">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+P"/>
+                  <KeyStroke key="Shift+Ctrl+D"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -146,7 +146,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="menuOpcionVerReportePersonaMascota">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+R"/>
+                  <KeyStroke key="Shift+Ctrl+A"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -166,7 +166,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="menuOpcionVerReportePersonaPasatiempo">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+U"/>
+                  <KeyStroke key="Shift+Ctrl+B"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -224,7 +224,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="menuOpcionAdministrarTiposMascotas">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+I"/>
+                  <KeyStroke key="Ctrl+T"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -257,7 +257,7 @@
                   <Image iconType="3" name="/reporte.png"/>
                 </Property>
                 <Property name="mnemonic" type="int" value="105"/>
-                <Property name="text" type="java.lang.String" value="Generar reporte mascotas"/>
+                <Property name="text" type="java.lang.String" value="Ver reporte mascotas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuOpcionGenerarReporteMascotasActionPerformed"/>
@@ -278,7 +278,7 @@
                   <Image iconType="3" name="/reporte.png"/>
                 </Property>
                 <Property name="mnemonic" type="int" value="105"/>
-                <Property name="text" type="java.lang.String" value="Generar reporte tipos de mascotas"/>
+                <Property name="text" type="java.lang.String" value="Ver reporte tipos de mascotas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuOpcionGenerarReporteTipoMascotaActionPerformed"/>

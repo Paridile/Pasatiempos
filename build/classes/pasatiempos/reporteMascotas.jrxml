@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6045d1c4-0bd8-491e-94a2-5d64c39fc18d">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="614eb842-b875-4c47-bd55-6c6773f3649a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="71"/>
+	<property name="ireport.y" value="28"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -14,7 +14,7 @@
 		</conditionalStyle>
 	</style>
 	<queryString language="SQL">
-		<![CDATA[SELECT * FROM pasatiempos.mascota;]]>
+		<![CDATA[SELECT * FROM pasatiempos.mascota]]>
 	</queryString>
 	<field name="idMascota" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -33,9 +33,9 @@
 		<groupHeader>
 			<band height="27">
 				<frame>
-					<reportElement mode="Opaque" x="0" y="3" width="721" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="40271342-b348-4ffb-9aab-38ae9f2323d5"/>
+					<reportElement mode="Opaque" x="0" y="3" width="721" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="5dd8c5f8-21a8-419b-adcd-7dcb151e8afd"/>
 					<textField isStretchWithOverflow="true">
-						<reportElement style="SubTitle" x="2" y="0" width="695" height="24" forecolor="#FFFFFF" uuid="929b4849-3245-48ac-b63d-200c90695e6b"/>
+						<reportElement style="SubTitle" x="2" y="0" width="695" height="24" forecolor="#FFFFFF" uuid="3a320f35-c6af-4fb8-a3b1-767116cc2ef5"/>
 						<textElement>
 							<font isBold="false"/>
 						</textElement>
@@ -43,7 +43,7 @@
 					</textField>
 				</frame>
 				<rectangle>
-					<reportElement x="725" y="3" width="77" height="24" backcolor="#666666" uuid="d72f90e7-9e4c-42d7-a2a1-80d60d191e5b"/>
+					<reportElement x="725" y="3" width="77" height="24" backcolor="#666666" uuid="a81317c3-a670-4289-a1d4-8f0a1a3a4315"/>
 					<graphicElement>
 						<pen lineWidth="0.0"/>
 					</graphicElement>
@@ -54,35 +54,15 @@
 			<band height="6"/>
 		</groupFooter>
 	</group>
-	<group name="nombre">
-		<groupExpression><![CDATA[$F{nombre}]]></groupExpression>
-		<groupHeader>
-			<band height="30">
-				<textField>
-					<reportElement positionType="Float" x="0" y="4" width="802" height="26" forecolor="#000000" uuid="947d28f8-2045-4d31-8053-6449c20d3b96"/>
-					<textElement>
-						<font fontName="Times New Roman" size="16" isBold="false"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
-				</textField>
-			</band>
-		</groupHeader>
-	</group>
-	<group name="descripcion">
-		<groupExpression><![CDATA[$F{descripcion}]]></groupExpression>
-	</group>
-	<group name="idTipoMascota">
-		<groupExpression><![CDATA[$F{idTipoMascota}]]></groupExpression>
-	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="102" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="4fc53d98-3910-46d8-bf24-f86228de0346"/>
+				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="0115ee33-cd59-4c3b-a897-1e6291ff3989"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="5e0a73db-ac4c-400d-aada-aec52ec3f765"/>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="a499fb90-f611-4e40-8637-c04953aad148"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
@@ -90,7 +70,7 @@
 					<text><![CDATA[Mascotas]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="924bda05-bb8e-4c11-9ff4-049fd1765c11"/>
+					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="f0a7eff4-536d-4d97-b711-91978f18dc59"/>
 					<textElement textAlignment="Right">
 						<font size="22" isBold="false"/>
 					</textElement>
@@ -98,9 +78,9 @@
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="db3b4554-7375-4ce4-85e7-b8212b17ff64"/>
+				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="b9672341-ed57-4c7e-863a-821f49be1b56"/>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="e927cf34-9417-4b2a-b552-50972392e741"/>
+					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="5dcca8c9-c643-4267-af39-a1511577aa4d"/>
 					<textElement textAlignment="Right">
 						<font size="12"/>
 					</textElement>
@@ -113,19 +93,62 @@
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="18" splitType="Stretch"/>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="265" height="18" forecolor="#000000" uuid="8a003ea6-0b25-4466-9eb8-b644e3896674"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="265" y="0" width="265" height="18" forecolor="#000000" uuid="396b0e5c-cedf-49f1-b3cf-2574f214e475"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="530" y="0" width="265" height="18" forecolor="#000000" uuid="02f595ac-99d7-4839-8c1a-b201995cfb1e"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[idTipoMascota]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
 		<band height="18" splitType="Stretch">
 			<frame>
-				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="3a9398c0-5850-44ec-b9e9-8d9a03c9e385"/>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="4c353514-eff8-44c1-841f-c9e8118a2016"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="265" height="18" uuid="aed99250-1d39-49d6-9f78-f71d86e4bf02"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="265" y="0" width="265" height="18" uuid="7e32e807-431c-45ae-92c9-195fb43e6496"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="530" y="0" width="265" height="18" uuid="79b7958b-ae03-4fc8-bbd8-0e9e2cd4fe7a"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{idTipoMascota}]]></textFieldExpression>
+				</textField>
 			</frame>
 		</band>
 	</detail>
 	<columnFooter>
 		<band height="7" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="52d92842-3261-453b-b597-0d89eccabf31"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="5252d0a5-5c66-492b-9f01-fc1bfcc19f64"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
@@ -135,23 +158,23 @@
 	<pageFooter>
 		<band height="25" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="396e6ace-19a4-4105-9937-c28809775525"/>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="cf533dac-e70f-473e-b0ab-9b3b1021359b"/>
 				<textField evaluationTime="Report">
-					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="db45f2b1-380c-4aa6-8605-d5ab251bfd2c"/>
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="7f114772-9081-493e-9f86-bf4491630a71"/>
 					<textElement verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="6e38adac-6b77-4fdf-b614-c1676837e650"/>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="3d5ad70f-7cf8-41d0-a663-8961943caf4c"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 				</textField>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="36dab530-65ca-420f-a2f4-d0f7434d7e05"/>
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="fa41a725-0c65-4cc2-86e7-910773d68cbf"/>
 					<textElement verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>

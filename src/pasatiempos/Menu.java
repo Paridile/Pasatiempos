@@ -68,7 +68,7 @@ public class Menu extends javax.swing.JFrame {
         menuPersonas.setText("Personas");
         menuPersonas.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
 
-        menuOpcionAdministrarPersonas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        menuOpcionAdministrarPersonas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         menuOpcionAdministrarPersonas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuOpcionAdministrarPersonas.setForeground(java.awt.Color.darkGray);
         menuOpcionAdministrarPersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconoMenuOpcionAdministrarPersonas.png"))); // NOI18N
@@ -94,7 +94,7 @@ public class Menu extends javax.swing.JFrame {
         });
         menuPersonas.add(menuOpcionAdministrarPasatiempos);
 
-        menuOpcionAdministrarPersonaMascota.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        menuOpcionAdministrarPersonaMascota.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         menuOpcionAdministrarPersonaMascota.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuOpcionAdministrarPersonaMascota.setForeground(java.awt.Color.darkGray);
         menuOpcionAdministrarPersonaMascota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hombre-palo.png"))); // NOI18N
@@ -107,7 +107,7 @@ public class Menu extends javax.swing.JFrame {
         });
         menuPersonas.add(menuOpcionAdministrarPersonaMascota);
 
-        menuOpcionAdministrarPersonaPasatiempo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        menuOpcionAdministrarPersonaPasatiempo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         menuOpcionAdministrarPersonaPasatiempo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuOpcionAdministrarPersonaPasatiempo.setForeground(java.awt.Color.darkGray);
         menuOpcionAdministrarPersonaPasatiempo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rompecabezas.png"))); // NOI18N
@@ -120,7 +120,7 @@ public class Menu extends javax.swing.JFrame {
         });
         menuPersonas.add(menuOpcionAdministrarPersonaPasatiempo);
 
-        menuOpcionVerReportePersonas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
+        menuOpcionVerReportePersonas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuOpcionVerReportePersonas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuOpcionVerReportePersonas.setForeground(java.awt.Color.darkGray);
         menuOpcionVerReportePersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reporte.png"))); // NOI18N
@@ -132,7 +132,7 @@ public class Menu extends javax.swing.JFrame {
         });
         menuPersonas.add(menuOpcionVerReportePersonas);
 
-        menuOpcionVerReportePasatiempos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        menuOpcionVerReportePasatiempos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuOpcionVerReportePasatiempos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuOpcionVerReportePasatiempos.setForeground(java.awt.Color.darkGray);
         menuOpcionVerReportePasatiempos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reporte.png"))); // NOI18N
@@ -144,7 +144,7 @@ public class Menu extends javax.swing.JFrame {
         });
         menuPersonas.add(menuOpcionVerReportePasatiempos);
 
-        menuOpcionVerReportePersonaMascota.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        menuOpcionVerReportePersonaMascota.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuOpcionVerReportePersonaMascota.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuOpcionVerReportePersonaMascota.setForeground(java.awt.Color.darkGray);
         menuOpcionVerReportePersonaMascota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reporte.png"))); // NOI18N
@@ -156,7 +156,7 @@ public class Menu extends javax.swing.JFrame {
         });
         menuPersonas.add(menuOpcionVerReportePersonaMascota);
 
-        menuOpcionVerReportePersonaPasatiempo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        menuOpcionVerReportePersonaPasatiempo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuOpcionVerReportePersonaPasatiempo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuOpcionVerReportePersonaPasatiempo.setForeground(java.awt.Color.darkGray);
         menuOpcionVerReportePersonaPasatiempo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reporte.png"))); // NOI18N
@@ -189,7 +189,7 @@ public class Menu extends javax.swing.JFrame {
         });
         menuMascotas.add(menuOpcionAdministrarMascotas);
 
-        menuOpcionAdministrarTiposMascotas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
+        menuOpcionAdministrarTiposMascotas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
         menuOpcionAdministrarTiposMascotas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuOpcionAdministrarTiposMascotas.setForeground(java.awt.Color.darkGray);
         menuOpcionAdministrarTiposMascotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menuOpcionAdministrarTiposMascotas.png"))); // NOI18N
@@ -207,7 +207,7 @@ public class Menu extends javax.swing.JFrame {
         menuOpcionGenerarReporteMascotas.setForeground(java.awt.Color.darkGray);
         menuOpcionGenerarReporteMascotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reporte.png"))); // NOI18N
         menuOpcionGenerarReporteMascotas.setMnemonic('i');
-        menuOpcionGenerarReporteMascotas.setText("Generar reporte mascotas");
+        menuOpcionGenerarReporteMascotas.setText("Ver reporte mascotas");
         menuOpcionGenerarReporteMascotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuOpcionGenerarReporteMascotasActionPerformed(evt);
@@ -220,7 +220,7 @@ public class Menu extends javax.swing.JFrame {
         menuOpcionGenerarReporteTipoMascota.setForeground(java.awt.Color.darkGray);
         menuOpcionGenerarReporteTipoMascota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reporte.png"))); // NOI18N
         menuOpcionGenerarReporteTipoMascota.setMnemonic('i');
-        menuOpcionGenerarReporteTipoMascota.setText("Generar reporte tipos de mascotas");
+        menuOpcionGenerarReporteTipoMascota.setText("Ver reporte tipos de mascotas");
         menuOpcionGenerarReporteTipoMascota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuOpcionGenerarReporteTipoMascotaActionPerformed(evt);
